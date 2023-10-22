@@ -3,16 +3,16 @@ public class Scripture
     private string _reference = "";
     private string _text = "";
     private List<Verse> _verses = new List<Verse>();
-    // this separates the array of scriptures and creates a new array with the selected scripture seperated by the reference and the verses.
+    // This seperates the array and creates a new one.
     public Scripture(string scripture)
     {
         string[] scriptSplit = scripture.Split(" | ", StringSplitOptions.RemoveEmptyEntries);
         _reference = scriptSplit[0];
         _text = scriptSplit[1];
-        SplitVerse();
+        SepVerse();
     }
-    // the splitverse function splits the scripture where there is a new verse detected. It then adds it to a new array of verses.
-    private void SplitVerse()
+    // the Sepverse function splits the scripture where there is a new verse detected.
+    private void SepVerse()
     {
         string[] splitVerses = _text.Split("\n", StringSplitOptions.RemoveEmptyEntries);
         foreach (string verse in splitVerses)

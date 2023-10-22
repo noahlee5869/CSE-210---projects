@@ -8,12 +8,13 @@ public class Book
     {
         scriptures();
     }
-    //contains array of scriptures
+    // has an array of random scripture
     private void scriptures()
     {
         _scriptures.Add("John 3:16 | For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
+        _scriptures.Add("Mosiah 2:17 | And behold, I tell you these things that ye may learn wisdom; that ye may learn that when ye are in the service of your fellow beings ye are only in the service of your God.");
     }
-    //pulls random scripture for memorizing
+    // selects a random scripture to be memorized
     public void GetRandomScripture()
     {
         Random random = new Random();

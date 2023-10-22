@@ -1,6 +1,7 @@
 using System;
 class Program
 {
+// Main function that calls everything together
     static void Main(string[] args)
     {
         Book b = new Book();
