@@ -1,8 +1,14 @@
 using System;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 public class MainMenu
 {
+    // Creates a count for the various activities.
+    int BreathingActivityCount = 0;
+    int ReflectingActivityCount = 0;
+    int ListingActivityCount = 0;
 
+    // Display menu to the users.
     public string OptionsDisplay()
     {
         string input = "";
@@ -22,12 +28,10 @@ public class MainMenu
         return input;
     }
 
+    // Sets up and call the various activities.
     public FullActivity PickActivity(string input)
     {
         FullActivity activity = new FullActivity();
-        int BreathingActivityCount = 0;
-        int ReflectingActivityCount = 0;
-        int ListingActivityCount = 0;
 
         if (input == "1")
         {
@@ -49,9 +53,11 @@ public class MainMenu
         else if (input == "4")
         {
             Console.WriteLine("These are number of activitys completed: ");
-            Console.WriteLine(BreathingActivityCount);
-            Console.WriteLine(ReflectingActivityCount);
-            Console.WriteLine(ListingActivityCount);
+            Console.WriteLine();
+            Console.WriteLine($"Breathing Activity: {BreathingActivityCount}");
+            Console.WriteLine($"Reflecting Activity: {ReflectingActivityCount}");
+            Console.WriteLine($"Listing Activity: {ListingActivityCount}");
+            Console.WriteLine();
         }
         return activity;
     }

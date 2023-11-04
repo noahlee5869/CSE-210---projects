@@ -1,7 +1,7 @@
 using System;
 public class BreathingActivity : FullActivity
 {
-
+    // Sets the name and description of the activity
     public BreathingActivity()
     {
         SetActivityName("Breathing Activity");
@@ -13,6 +13,7 @@ public class BreathingActivity : FullActivity
         BreathingExercise();
     }
 
+    // Displays to the user to breath in and breath out with a timer.
     public void BreathingExercise()
     {
         int breaths = (GetDuration() / 20) + 1;

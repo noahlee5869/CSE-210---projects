@@ -5,6 +5,7 @@ public class ListingActivity: FullActivity
 
     private Random _random = new Random();
 
+    // Creates a list of questions for the user to respond to.
     private List<string> Prompts = new List<string>(){
         "Who is someone you looked up to?",
         "What is your biggest fear?",
@@ -12,17 +13,14 @@ public class ListingActivity: FullActivity
         "How have you improved this year?"
     };
 
+    // Sets the name and description of the activity
      public ListingActivity()
     {
         SetActivityName("Listening Activity");
         SetDescription("This activity will help you practice listening.");
     }
 
-    public void ListingExercise()
-    {
-        
-    }
-
+    // Displays to the user instructions on how to complete the steps.
     public override void DisplayPrompt()
     {
         Console.WriteLine("List as many respones to the question as you can: ");
@@ -32,14 +30,7 @@ public class ListingActivity: FullActivity
         Console.WriteLine();
     }
 
-    private string RandomPrompt()
-    {
-        Random random = new Random();
-        int index = random.Next(Prompts.Count);
-        string Prompt = Prompts[index];
-        return Prompt;
-    }
-
+    // Sets up the time limit for this aspect of the program.
     private void ListOfThoughts()
     {
         DateTime future = UseTimer().GetFutureTime(GetDuration());
@@ -56,7 +47,7 @@ public class ListingActivity: FullActivity
         UseTimer().LoadingScreen();
         Console.WriteLine();
     }
-
+    // Calls the functions together.
     public override void StartActivity()
     {
         DisplayPrompt();

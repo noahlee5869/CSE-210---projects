@@ -2,6 +2,7 @@ using System;
 
 public class ReflectingActivity : FullActivity
 {
+    // Calls the random function, and creates a list of Prompts for the user.
     private Random _random = new Random();
     private List<string> Prompts = new List<string>(){
         "Think of a time when you stood up for someone else.",
@@ -10,6 +11,7 @@ public class ReflectingActivity : FullActivity
         "Think of a time when you did something truly selfless."
     };
 
+    // Creates a second list of follow up questions for the user.
     private List<string> QuestionPrompt = new List<string>(){
         "Why was this experience meaningful to you?",
         "Have you ever done anything like this before?",
@@ -20,12 +22,14 @@ public class ReflectingActivity : FullActivity
         "What could you learn from this experience that applies to other situations?",
         "What did you learn about yourself through this experience?",
         "How can you keep this experience in mind in the future?"};
+
+    // Sets the name and description of the activity
     public ReflectingActivity()
     {
         SetActivityName("Reflecting Activity");
         SetDescription("This activity will help you reflect on questions that will be provided to you.");
     }
-
+    // Display the instructions to the user.
     public override void DisplayPrompt()
     {
         Console.WriteLine("Take time to ponder on the questions that will be provided to you: ");
@@ -35,14 +39,7 @@ public class ReflectingActivity : FullActivity
         Questions();
     }
 
-    private string RandomPrompt()
-    {
-        Random random = new Random();
-        int index = random.Next(Prompts.Count);
-        string Prompt = Prompts[index];
-        return Prompt;
-    }
-
+    // Prints the random question and prints the loading screen.
     private void Questions()
     {
         int numQuestions = (GetDuration() / 10) + 1;
@@ -54,7 +51,7 @@ public class ReflectingActivity : FullActivity
             Console.WriteLine();
         }
     }
-
+    
     public override void StartActivity()
     {
         DisplayPrompt();
