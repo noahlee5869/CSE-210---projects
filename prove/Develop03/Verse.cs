@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 public class Verse
 {
-    private List<int> _hiddenIndexes = new List<int>();
+    private List<int> HiddenIndexes = new List<int>();
     private string _verse;
-    private List<Word> _words = new List<Word>();
+    private List<Word> Words = new List<Word>();
 
     public Verse(string verse)
     {
@@ -18,12 +18,12 @@ public class Verse
         foreach (string word in splitAtWord)
         {
             Word newWord = new Word(word);
-            _words.Add(newWord);
+            Words.Add(newWord);
         }
     }
     public void ShowVerse()
     {
-        foreach (Word word in _words)
+        foreach (Word word in Words)
         {
             word.ShowWord();
             Console.Write(" ");
@@ -33,27 +33,26 @@ public class Verse
     {
         Random random = new Random();
         int randomIndex = random.Next(0, maximum);
-        while (_hiddenIndexes.Contains(randomIndex))
+        while (HiddenIndexes.Contains(randomIndex))
         {
             randomIndex = random.Next(0, maximum);
         }
-        _hiddenIndexes.Add(randomIndex);
+        HiddenIndexes.Add(randomIndex);
         return randomIndex;
     }
     public void HideWords()
     {
-        int numToHide = _words.Count / 2;
+        int numToHide = Words.Count / 2;
         for (int i = 0; i < 3; i++)
         {
-            if (numToHide == 0)
+            if (Words.Count == 0)
             {
-                Environment.Exit(0);
+                return;
             }
             else
             {
-            int randomIndex = GetRandomIndex(_words.Count);
-
-            _words[randomIndex].UnderscoreWord();
+                int randomIndex = GetRandomIndex(Words.Count);
+                Words[randomIndex].UnderscoreWord();
             }
         }
     }

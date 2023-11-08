@@ -2,39 +2,38 @@ using System;
 using System.Collections.Generic;
 public class Word
 {
-    private string _singleWord;
-    private string _hiddenWord = "";
-    private bool _isHidden = false;
+    private string SingleWord;
+    private string HiddenWord = "";
+    private bool IsHidden = false;
     public Word(string singleWord)
     {
-        _singleWord = singleWord;
-        // UnderscoreWord();
+        SingleWord = singleWord;
     }
     public void UnderscoreWord()
     {
-        foreach (char letter in _singleWord)
+        foreach (char letter in SingleWord)
         {
             if (letter != '.' && letter != '!' && letter != '?' &&
                     letter != ',' && letter != ':' && letter != ';')
             {
-                _hiddenWord += "_";
+                HiddenWord += "_";
             }
             else
             {
-                _hiddenWord += letter;
+                HiddenWord += letter;
             }
         }
-        _isHidden = true;
+        IsHidden = true;
     }
     public void ShowWord()
     {
-        if (_isHidden)
+        if (IsHidden)
         {
-            Console.Write(_hiddenWord);
+            Console.Write(HiddenWord);
         }
         else
         {
-            Console.Write(_singleWord);
+            Console.Write(SingleWord);
         }
     }
 
