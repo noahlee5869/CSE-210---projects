@@ -45,8 +45,16 @@ public class Verse
         int numToHide = _words.Count / 2;
         for (int i = 0; i < 3; i++)
         {
+            if (numToHide == 0)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
             int randomIndex = GetRandomIndex(_words.Count);
+
             _words[randomIndex].UnderscoreWord();
+            }
         }
     }
 

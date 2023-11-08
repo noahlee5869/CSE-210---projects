@@ -20,6 +20,8 @@ class Program
         {
             Console.Clear();
             scripture.ShowScripture();
+            Console.Clear();
+            scripture.HideWords();
 
 
 
