@@ -26,6 +26,7 @@ class Program
                 Console.WriteLine("Create a new goals");
                 Base b1 = new Base();
                 b1.goalMenu();
+                b1.GetGoal();
             }
             else if (userInput == 2)
             {

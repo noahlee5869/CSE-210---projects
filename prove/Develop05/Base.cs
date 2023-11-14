@@ -1,17 +1,17 @@
 using System;
+using System.Collections.Generic;
 
 class Base
 {
-    public string goalNames;
-    public string goalDescription;
-    public int pointValues;
-    public int bonusPoints;
-    public int bonusCounter;
+    public Base goalName;
+    public Base goalDescription;
+    public Base pointValue;
     public int userInput;
-    
+    public List<Base> GoalList = new List<Base>();
+
     public Base()
     {
-
+        GoalList = new List<Base>();
     }
 
     public void goalMenu()
@@ -22,43 +22,18 @@ class Base
         Console.WriteLine("3. Create new Check List Goal");
         Console.WriteLine("----------------------");
         userInput = int.Parse(Console.ReadLine());
+
         if (userInput == 1)
         {
-            Console.WriteLine("Simple goal: ");
-            Console.WriteLine("---------------------");
             simpleGoal g1 = new simpleGoal();
-            g1.getSimpleGoal();
-        }
-        else if (userInput == 2)
-        {
-            Console.WriteLine("Eternal Goal: ");
-            Console.WriteLine("---------------------");
-            eternalGoal g2 = new eternalGoal();
-            g2.geteternalGoal();
-        }
-        else if (userInput == 3)
-        {
-            Console.WriteLine("Checklist Goal: ");
-            Console.WriteLine("---------------------");
-            checklistGoal g3 = new checklistGoal();
-            g3.getchecklistGoal();
-        }
-        else
-        {
-            Console.WriteLine("Invalid input, please try again.");
-        }
-        
+            g1.GetValues();
+            g1.GetGoal();
+            GoalList.Add(g1);
+        }    
     }
-    public void info()
+
+    public virtual List<Base> GetGoal()
     {
-        Console.WriteLine("Please enter what you what the name of your goal to be: ");
-        goalNames = Console.ReadLine();
-
-        Console.WriteLine("Please enter a short description of the goal: ");
-        goalDescription = Console.ReadLine();
-
-        Console.WriteLine("Please enter the amount of point you will recieve upon completion of the goal");
-        pointValues = int.Parse(Console.ReadLine());
+        return GoalList;
     }
-
 }
