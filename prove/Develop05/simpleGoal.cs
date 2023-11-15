@@ -4,10 +4,6 @@ using System.Security.Cryptography.X509Certificates;
 
 class simpleGoal : Base
 {
-    private List<string> SimpleGoalList;
-
-
-
     public void GetValues()
     {
         Console.WriteLine("Simple goal: ");
@@ -29,14 +25,8 @@ class simpleGoal : Base
         }
     }
 
-    public override List<string> GetGoal()
+    public override string GetGoalName()
     {
-        SimpleGoalList = new List<string>
-        {
-            goalName,
-            goalDescription,
-            pointValue.ToString()
-        };
-        return SimpleGoalList;
+        return goalName;
     }
 }

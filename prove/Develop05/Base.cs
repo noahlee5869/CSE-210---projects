@@ -27,16 +27,16 @@ class Base
         {
             simpleGoal g1 = new simpleGoal();
             g1.GetValues();
-            g1.GetGoal();
+            g1.GetGoalName();
             GoalList.Add(g1.ToString());
         }    
         Console.WriteLine("Items in list");
         Console.WriteLine(GoalList.Count);
     }
 
-    public virtual List<string> GetGoal()
+    public virtual string GetGoalName()
     {
-        return GoalList;
+        return goalName;
     }
 
 }
