@@ -4,7 +4,9 @@ using System.Security.Cryptography.X509Certificates;
 
 class simpleGoal : Base
 {
-    private List<Base> SimpleGoalList;
+    private List<string> SimpleGoalList;
+
+
 
     public void GetValues()
     {
@@ -12,26 +14,28 @@ class simpleGoal : Base
         Console.WriteLine("---------------------");
 
         Console.WriteLine("Please enter what you want the name of your goal to be: ");
-        string goalName = Console.ReadLine();
+        goalName = Console.ReadLine();
+    
 
         Console.WriteLine("Please enter a short description of the goal: ");
-        string goalDescription = Console.ReadLine();
+        string goalDescription_ = Console.ReadLine();
+        goalDescription = goalDescription_;
 
         Console.WriteLine("Please enter the amount of points you will receive upon completion of the goal");
-        int pointValue;
+        
         while (!int.TryParse(Console.ReadLine(), out pointValue))
         {
             Console.WriteLine("Invalid input. Please enter a valid integer for points.");
         }
     }
 
-    public override List<Base> GetGoal()
+    public override List<string> GetGoal()
     {
-        SimpleGoalList = new List<Base>
+        SimpleGoalList = new List<string>
         {
             goalName,
             goalDescription,
-            pointValue
+            pointValue.ToString()
         };
         return SimpleGoalList;
     }

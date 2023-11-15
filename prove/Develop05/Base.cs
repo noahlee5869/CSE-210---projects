@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 class Base
 {
-    public Base goalName;
-    public Base goalDescription;
-    public Base pointValue;
+    public string goalName;
+    public string goalDescription;
+    public int pointValue;
     public int userInput;
-    public List<Base> GoalList = new List<Base>();
+    public List<string> GoalList = new List<string>();
 
     public Base()
     {
-        GoalList = new List<Base>();
+        GoalList = new List<string>();
     }
 
     public void goalMenu()
@@ -28,12 +28,15 @@ class Base
             simpleGoal g1 = new simpleGoal();
             g1.GetValues();
             g1.GetGoal();
-            GoalList.Add(g1);
+            GoalList.Add(g1.ToString());
         }    
+        Console.WriteLine("Items in list");
+        Console.WriteLine(GoalList.Count);
     }
 
-    public virtual List<Base> GetGoal()
+    public virtual List<string> GetGoal()
     {
         return GoalList;
     }
+
 }
