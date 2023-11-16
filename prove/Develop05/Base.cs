@@ -7,11 +7,10 @@ class Base
     public string GoalDescription { get; set; }
     public int PointValue { get; set; }
     public static List<Base> GoalList = new List<Base>();
-    public string fileName;
 
     public Base()
     {
-        // Removed redundant initialization
+
     }
 
     public void goalMenu()
@@ -30,8 +29,19 @@ class Base
             GoalList.Add(simpleGoal);
         }
 
-        Console.WriteLine("Items in list");
-        GoalList.ForEach(goal => Console.WriteLine(goal.GoalName));
+        else if (userInput == 2)
+        {
+            EternalGoal EternalGoal = new EternalGoal();
+            EternalGoal.GetValues();
+            GoalList.Add(EternalGoal);
+        }
+
+        else if (userInput == 3)
+        {
+            ChecklistGoal ChecklistGoal = new ChecklistGoal();
+            ChecklistGoal.GetValues();
+            GoalList.Add(ChecklistGoal);    
+        }
     }
 
     public virtual void GetValues()
@@ -49,7 +59,7 @@ class SimpleGoal : Base
 {
     public override void GetValues()
     {
-        base.GetValues(); // Call the base class method to get common values
-        // Additional logic specific to SimpleGoal, if needed
+        base.GetValues();
+        
     }
 }
