@@ -3,15 +3,15 @@ using System.Collections.Generic;
 
 class Base
 {
-    public string goalName;
-    public string goalDescription;
-    public int pointValue;
-    public int userInput;
-    public List<string> GoalList = new List<string>();
+    public string GoalName { get; set; }
+    public string GoalDescription { get; set; }
+    public int PointValue { get; set; }
+    public static List<Base> GoalList = new List<Base>();
+    public string fileName;
 
     public Base()
     {
-        GoalList = new List<string>();
+        // Removed redundant initialization
     }
 
     public void goalMenu()
@@ -21,22 +21,35 @@ class Base
         Console.WriteLine("2. Create new Eternal Goal");
         Console.WriteLine("3. Create new Check List Goal");
         Console.WriteLine("----------------------");
-        userInput = int.Parse(Console.ReadLine());
+        int userInput = int.Parse(Console.ReadLine());
 
         if (userInput == 1)
         {
-            simpleGoal g1 = new simpleGoal();
-            g1.GetValues();
-            g1.GetGoalName();
-            GoalList.Add(g1.ToString());
-        }    
+            SimpleGoal simpleGoal = new SimpleGoal();
+            simpleGoal.GetValues();
+            GoalList.Add(simpleGoal);
+        }
+
         Console.WriteLine("Items in list");
-        Console.WriteLine(GoalList.Count);
+        GoalList.ForEach(goal => Console.WriteLine(goal.GoalName));
     }
 
-    public virtual string GetGoalName()
+    public virtual void GetValues()
     {
-        return goalName;
+        Console.WriteLine("Enter goal name: ");
+        GoalName = Console.ReadLine();
+        Console.WriteLine("Enter goal description: ");
+        GoalDescription = Console.ReadLine();
+        Console.WriteLine("Enter point value: ");
+        PointValue = int.Parse(Console.ReadLine());
     }
+}
 
+class SimpleGoal : Base
+{
+    public override void GetValues()
+    {
+        base.GetValues(); // Call the base class method to get common values
+        // Additional logic specific to SimpleGoal, if needed
+    }
 }

@@ -4,7 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        int userInput; // Declare userInput variable
+        int userInput;
+        string fileName = "noah";
 
         do
         {
@@ -26,19 +27,21 @@ class Program
                 Console.WriteLine("Create a new goals");
                 Base b1 = new Base();
                 b1.goalMenu();
-                b1.GetGoalName();
             }
             else if (userInput == 2)
             {
-                Console.WriteLine("List goals");
+                DisplayGoals d1 = new DisplayGoals();
+                d1.PrintGoalList();
             }
             else if (userInput == 3)
             {
-                Console.WriteLine("Save Goals");
+                GoalFileManager c1 = new GoalFileManager();
+                c1.SaveGoals();
             }
             else if (userInput == 4)
             {
-                Console.WriteLine("Load goals");
+                GoalFileManager c1 = new GoalFileManager();
+                c1.LoadGoals();
             }
             else if (userInput == 5)
             {
