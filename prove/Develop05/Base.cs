@@ -12,7 +12,6 @@ class Base
     {
 
     }
-
     public void goalMenu()
     {
         Console.WriteLine("----------------------");
@@ -40,6 +39,7 @@ class Base
         {
             ChecklistGoal ChecklistGoal = new ChecklistGoal();
             ChecklistGoal.GetValues();
+            ChecklistGoal.GetBonusPoints();
             GoalList.Add(ChecklistGoal);    
         }
     }
@@ -60,6 +60,5 @@ class SimpleGoal : Base
     public override void GetValues()
     {
         base.GetValues();
-        
     }
 }
