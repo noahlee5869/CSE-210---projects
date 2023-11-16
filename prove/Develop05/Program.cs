@@ -8,7 +8,6 @@ class Program
 
         do
         {
-            Console.WriteLine("Your total score is: ");
             Console.WriteLine("Welcome to the Goal game.");
             Console.WriteLine("-------------------------");
             Console.WriteLine("1. Create new goals");
@@ -44,7 +43,8 @@ class Program
             }
             else if (userInput == 5)
             {
-                Console.WriteLine("Record Event");
+                UpdateGoals u1 = new UpdateGoals();
+                u1.AddPoints();
             }
             else if (userInput == 6)
             {
@@ -55,6 +55,6 @@ class Program
                 Console.WriteLine("Invalid input, please try again.");
             }
 
-        } while (userInput != 6); // Corrected the condition
+        } while (userInput != 6);
     }
 }

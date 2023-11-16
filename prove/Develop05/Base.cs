@@ -6,6 +6,7 @@ class Base
     public string GoalName { get; set; }
     public string GoalDescription { get; set; }
     public int PointValue { get; set; }
+    public int PointTotal { get; set; }
     public static List<Base> GoalList = new List<Base>();
 
     public Base()
@@ -40,7 +41,7 @@ class Base
             ChecklistGoal ChecklistGoal = new ChecklistGoal();
             ChecklistGoal.GetValues();
             ChecklistGoal.GetBonusPoints();
-            GoalList.Add(ChecklistGoal);    
+            GoalList.Add(ChecklistGoal);
         }
     }
 
@@ -52,13 +53,5 @@ class Base
         GoalDescription = Console.ReadLine();
         Console.WriteLine("Enter point value: ");
         PointValue = int.Parse(Console.ReadLine());
-    }
-}
-
-class SimpleGoal : Base
-{
-    public override void GetValues()
-    {
-        base.GetValues();
     }
 }

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 
-class simpleGoal : Base
+class SimpleGoal : Base
 {
-    public simpleGoal()
+    public SimpleGoal()
     {
 
     }
