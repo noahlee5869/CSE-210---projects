@@ -68,6 +68,8 @@ class GoalFileManager : Base
             Console.WriteLine($"Error loading goals: {ex.Message}");
         }
 
-        return loadedGoals;
+        GoalList = loadedGoals;
+
+        return GoalList;
     }
 }
