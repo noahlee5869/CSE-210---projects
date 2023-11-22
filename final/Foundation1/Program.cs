@@ -3,7 +3,7 @@ using System;
 class Program
 {
     public static Video video1;
-
+    // Main function to create all the video's and comments, and print everything
     static void Main(string[] args)
     {
         Comment Comment1 = new Comment();

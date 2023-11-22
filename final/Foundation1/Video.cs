@@ -1,10 +1,11 @@
 public class Video
 {
+    // sets up the different variables related to the video as well as a list for the comments.
     public string VideoDescription;
     public int VideoLength;
     public string VideoName;
     public List<Comment> _comment = new List<Comment>();
-
+    // Method used to print the video information and add to the list of comments.
     public void Display()
     {
         Console.WriteLine($"Name: {VideoName}");
