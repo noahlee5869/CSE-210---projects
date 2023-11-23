@@ -1,9 +1,16 @@
-using System;
-
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello Foundation2 World!");
+        Products lysol = new Products();
+
+        Order order = new Order();
+        order.AddProduct(lysol);
+
+        order.CalculateTotalCost();
+        Console.WriteLine(order.PackingLabel());
+        Console.WriteLine(order.ShippingLabel());
+
+        Console.WriteLine($"Total Cost: ${order.GetTotalCost()}");
     }
 }
