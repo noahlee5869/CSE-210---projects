@@ -1,19 +1,35 @@
-using System;
 public class Customer
 {
     private string name;
+    private Address address;
 
-    public void NewCustomer()
+    public Customer()
     {
-        Address address = new Address();
-        address.GetAddress();
-        address.GetCountry();
+        address = new Address();
+    }
+
+    public void SetName()
+    {
+        name = "noah";
+    }
+
+    public void SetAddress()
+    {
+        address.SetAddress();
     }
 
     public string GetName()
     {
-        Console.WriteLine("Please enter your name: ");
-        name = Console.ReadLine();
         return name;
+    }
+
+    public string GetAddress()
+    {
+        return address.GetAddress();
+    }
+
+    public string GetCountry()
+    {
+        return address.GetCountry();
     }
 }

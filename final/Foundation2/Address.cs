@@ -1,29 +1,21 @@
 public class Address
 {
-    private string _address;
-    private string _country;
-    
-    public string GetAddress()
+    private string address;
+    private string country;
+
+    public void SetAddress()
     {
-        Console.WriteLine("Please enter your full address in the form: (#, street, city)");
-        _address = Console.ReadLine();
-
-        Console.WriteLine("Is this address located in the USA? (yes/no)");
-        _country = Console.ReadLine();
-
-        string fullAddress = $"{_address}, {_country}";
-        return fullAddress;
+        address = "14617 shawnee gate sw";
+        country = "Canada";
     }
 
-    public int GetCountry()
+    public string GetAddress()
     {
-        if (_country == "Yes")
-        {
-            return 1;
-        }
-        else
-        {
-            return 0;
-        }
+        return address;
+    }
+
+    public string GetCountry()
+    {
+        return country;
     }
 }

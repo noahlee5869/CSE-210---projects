@@ -5,12 +5,13 @@ public class Order
 {
     private List<Products> OrderList;
     private int total;
-    private List<Customer> CustomerList;
+    private Customer customer;
 
     public Order()
     {
         OrderList = new List<Products>();
         total = 0;
+        customer = new Customer();
     }
 
     public void AddProduct(Products product)
@@ -18,9 +19,9 @@ public class Order
         OrderList.Add(product);
     }
 
-    public void Addcustomer(Customer customer)
+    public void SetCustomer(Customer customer)
     {
-        CustomerList.Add(customer);
+        this.customer = customer;
     }
 
     public void CalculateTotalCost()
@@ -38,13 +39,13 @@ public class Order
 
     public string PackingLabel()
     {
-        string PackingLabel = $"This is the packing label total: {total}";
-        return PackingLabel;
+        string packingLabel = $"This is the packing label total: {total}";
+        return packingLabel;
     }
 
     public string ShippingLabel()
     {
-        string ShippingLabel = $"Name: ";
-        return ShippingLabel;
+        string shippingLabel = $"Name: {customer.GetName()}\nAddress: {customer.GetAddress()} {customer.GetCountry()}";
+        return shippingLabel;
     }
 }
