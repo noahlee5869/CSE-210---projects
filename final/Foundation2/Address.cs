@@ -1,21 +1,29 @@
-public class Address
+class Address
 {
-    private string address;
-    private string country;
+    // Created the variables reqiured for the address.
+    public string Street { get; private set; }
+    public string City { get; private set; }
+    public string State { get; private set; }
+    public string Country { get; private set; }
 
-    public void SetAddress()
+    // Method to set up the variables in the Address class.
+    public Address(string street, string city, string state, string country)
     {
-        address = "14617 shawnee gate sw";
-        country = "Canada";
+        Street = street;
+        City = city;
+        State = state;
+        Country = country;
     }
 
-    public string GetAddress()
+    // Method to return the country string.
+    public bool IsInUSA()
     {
-        return address;
+        return Country.ToUpper() == "USA";
     }
 
-    public string GetCountry()
+    // Method to return the full Address.
+    public string GetFullAddress()
     {
-        return country;
+        return $"{Street}, {City}, {State}, {Country}";
     }
 }

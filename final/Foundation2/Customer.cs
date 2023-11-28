@@ -1,35 +1,19 @@
-public class Customer
+class Customer
 {
-    private string name;
-    private Address address;
+    // Created the variables for the Customer.
+    public string Name { get; private set; }
+    public Address Address { get; private set; }
 
-    public Customer()
+    // Method to set up the variables.
+    public Customer(string name, Address address)
     {
-        address = new Address();
+        Name = name;
+        Address = address;
     }
 
-    public void SetName()
+    // Method to return is the address is in the USA or not.
+    public bool IsInUSA()
     {
-        name = "noah";
-    }
-
-    public void SetAddress()
-    {
-        address.SetAddress();
-    }
-
-    public string GetName()
-    {
-        return name;
-    }
-
-    public string GetAddress()
-    {
-        return address.GetAddress();
-    }
-
-    public string GetCountry()
-    {
-        return address.GetCountry();
+        return Address.IsInUSA();
     }
 }

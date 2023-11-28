@@ -1,51 +1,58 @@
-using System;
-using System.Collections.Generic;
-
-public class Order
+class Order
 {
-    private List<Products> OrderList;
-    private int total;
-    private Customer customer;
+    // Created variables specific for the order.
+    private List<Product> Products { get; set; }
+    private Customer Customer { get; set; }
 
-    public Order()
+    // Method to set up the variables for the order class.
+    public Order(Customer customer)
     {
-        OrderList = new List<Products>();
-        total = 0;
-        customer = new Customer();
+        Products = new List<Product>();
+        Customer = customer;
     }
 
-    public void AddProduct(Products product)
+    // Mehtod to add the product to the products list.
+    public void AddProduct(Product product)
     {
-        OrderList.Add(product);
+        Products.Add(product);
     }
 
-    public void SetCustomer(Customer customer)
+    // Method to add the price of the product to the total price, accounts for the country.
+    public double GetTotalPrice()
     {
-        this.customer = customer;
-    }
+        double totalPrice = 0;
 
-    public void CalculateTotalCost()
-    {
-        foreach (Products product in OrderList)
+        foreach (var product in Products)
         {
-            total += product.GetQuantity() * product.GetProductPrice();
+            totalPrice += product.GetTotalPrice();
         }
+
+        
+        if (Customer.IsInUSA())
+        {
+            totalPrice += 5; 
+        }
+        else
+        {
+            totalPrice += 35; 
+        }
+
+        return totalPrice;
     }
 
-    public int GetTotalCost()
+    // Method to print the packing label.
+    public string GetPackingLabel()
     {
-        return total;
-    }
-
-    public string PackingLabel()
-    {
-        string packingLabel = $"This is the packing label total: {total}";
+        string packingLabel = "";
+        foreach (var product in Products)
+        {
+            packingLabel += $"{product.Name} (ID: {product.ProductId})\n";
+        }
         return packingLabel;
     }
-
-    public string ShippingLabel()
+    // Method to print the shipping label.
+    public string GetShippingLabel()
     {
-        string shippingLabel = $"Name: {customer.GetName()}\nAddress: {customer.GetAddress()} {customer.GetCountry()}";
-        return shippingLabel;
+        return $"Customer: {Customer.Name}\nAddress: {Customer.Address.GetFullAddress()}";
     }
 }

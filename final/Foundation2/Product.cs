@@ -1,25 +1,23 @@
-using System;
-
-public class Products
+class Product
 {
-    private string ProductName;
-    private int ProductPrice;
-    private int Quantity;
+    // Created the Variables for each product.
+    public string Name { get; private set; }
+    public string ProductId { get; private set; }
+    public double Price { get; private set; }
+    public int Quantity { get; private set; }
 
-    public Products()
+    // Method to set up each variable.
+    public Product(string name, string productId, double price, int quantity)
     {
-        ProductName = "Lysol";
-        ProductPrice = 10;
-        Quantity = 4;
+        Name = name;
+        ProductId = productId;
+        Price = price;
+        Quantity = quantity;
     }
 
-    public int GetQuantity()
+    // Method to Return and preform the calculation for total price.
+    public double GetTotalPrice()
     {
-        return Quantity;
-    }
-
-    public int GetProductPrice()
-    {
-        return ProductPrice;
+        return Price * Quantity;
     }
 }
