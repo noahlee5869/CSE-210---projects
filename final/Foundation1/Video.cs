@@ -1,7 +1,7 @@
 public class Video
 {
     // sets up the different variables related to the video as well as a list for the comments.
-    public string VideoDescription;
+    public string VideoAuthor;
     public int VideoLength;
     public string VideoName;
     public List<Comment> _comment = new List<Comment>();
@@ -9,7 +9,7 @@ public class Video
     public void Display()
     {
         Console.WriteLine($"Name: {VideoName}");
-        Console.WriteLine($"Description: {VideoDescription}");
+        Console.WriteLine($"Author: {VideoAuthor}");
         Console.WriteLine($"Length: {VideoLength} seconds");
         Console.WriteLine($"Number of comments: {_comment.Count}");
         Console.WriteLine("Comments: ");

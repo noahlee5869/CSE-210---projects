@@ -36,21 +36,21 @@ class Program
 
         Video Video1 = new Video();
         Video1.VideoName = "How to code in python";
-        Video1.VideoDescription = "Programming bro's";
+        Video1.VideoAuthor = "Programming bro's";
         Video1.VideoLength = 1000;
         Video1._comment.Add(Comment1);
         Video1._comment.Add(Comment2);
 
         Video Video2 = new Video();
-        Video2.VideoName = "Engineering Tutor";
-        Video2.VideoDescription = "Engineering 101";
+        Video2.VideoName = "Engineering 101";
+        Video2.VideoAuthor = "Engineering Tutor";
         Video2.VideoLength = 2000;
         Video2._comment.Add(Comment3);
         Video2._comment.Add(Comment4);
 
         Video Video3 = new Video();
-        Video3.VideoName = "Cooking Bro";
-        Video3.VideoDescription = "How to make bread";
+        Video3.VideoName = "How to make bread";
+        Video3.VideoAuthor = "Cooking Bro";
         Video3.VideoLength = 3000;
         Video3._comment.Add(Comment5);
         Video3._comment.Add(Comment6);
