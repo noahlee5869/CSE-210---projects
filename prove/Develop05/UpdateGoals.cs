@@ -8,19 +8,12 @@ class UpdateGoals : Base
     {
         Console.WriteLine("Which goal did you complete?");
         userInput = Console.ReadLine();
-//        if (userInput == GoalName)
-//        {
-//            ThirdItem = GoalList[2];
-//            if (int.TryParse(ThirdItem, out int ThirdItemAsInt))
-//        {
-//            Console.WriteLine(ThirdItemAsInt);
-//        }
-//        else
-//        {
-//            Console.WriteLine("Unable to convert the third item to an integer.");
-//        }
-//            PointTotal = PointTotal + ThirdItem;
-//        }
+
+        if (userInput == GoalList[0].GoalName)
+        {
+            PointTotal = PointTotal + GoalList[0].PointValue;
+        }
+
         Console.WriteLine("Your total score is: ");
         Console.WriteLine(PointTotal);
     }
